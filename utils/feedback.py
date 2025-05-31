@@ -1,28 +1,25 @@
-from github import Github
-import streamlit as st
 import datetime
 import html
+import streamlit as st
+from github import Github
 
-def log_feedback(texto_feedback):
-    if not texto_feedback.strip():
-        return
+def log_feedback(feedback_text):
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Sanitiza o texto
+    safe_text = html.escape(feedback_text)
+    full_text = f"[{timestamp}] {safe_text}\n"
 
     token = st.secrets["GITHUB_TOKEN"]
     repo_name = st.secrets["REPO_NAME"]
-    feedback_path = st.secrets.get("FEEDBACK_FILE_PATH", "feedbacks/feedback.txt")
+    file_path = st.secrets.get("FEEDBACK_FILE_PATH", "feedbacks/feedback.txt")
 
-    gh = Github(token)
-    repo = gh.get_repo(repo_name)
-
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    safe_text = html.escape(texto_feedback)
-    full_entry = f"[{timestamp}] {safe_text}\n"
+    g = Github(token)
+    repo = g.get_repo(repo_name)
 
     try:
-        file = repo.get_contents(feedback_path)
-        conteudo_antigo = file.decoded_content.decode("utf-8")
-        novo_conteudo = conteudo_antigo + full_entry
-        repo.update_file(feedback_path, "Atualiza feedback", novo_conteudo, file.sha, branch="main")
+        contents = repo.get_contents(file_path, ref="main")
+        new_content = contents.decoded_content.decode() + full_text
+        repo.update_file(file_path, "append feedback", new_content, contents.sha, branch="main")
     except Exception:
-        # Se o arquivo não existir, cria
-        repo.create_file(feedback_path, "Cria feedback.txt", full_entry, branch="main")
+        repo.create_file(file_path, "create feedback log", full_text, branch="main")
