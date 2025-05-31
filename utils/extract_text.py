@@ -1,6 +1,5 @@
 import fitz  # PyMuPDF
 import docx
-from newspaper import Article
 import tempfile
 import os
 
