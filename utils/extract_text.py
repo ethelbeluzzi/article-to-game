@@ -33,11 +33,14 @@ def extract_text_from_docx(file):
     texto = "\n".join([p.text for p in doc.paragraphs if p.text.strip() != ""])
     return texto.strip()
 
+import requests
+import html2text
+
 def extract_text_from_url(url):
-    article = Article(url)
     try:
-        article.download()
-        article.parse()
-        return article.text.strip()
-    except:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        texto = html2text.html2text(response.text)
+        return texto.strip()
+    except Exception:
         return None
