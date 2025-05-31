@@ -18,15 +18,28 @@ if "game_id" not in st.session_state:
 if "pontuacao" not in st.session_state:
     st.session_state.pontuacao = 0
 
+from utils.llm_chat import llm_sidebar_consultation
+from utils.feedback import log_feedback
+
 # --- Sidebar ---
 with st.sidebar:
-    llm_sidebar_consultation()  # nova função integrada
+    # 🤖 Consulta à LLM (Qwen2.5)
+    llm_sidebar_consultation()
 
-    st.markdown("### 🛠️ Enviar feedback")
-    feedback_text = st.text_area("Comentário ou sugestão:")
-    if st.button("Enviar feedback"):
-        log_feedback(feedback_text)
-        st.success("Feedback enviado com sucesso!")
+    # 📝 Feedback do usuário
+    st.markdown("📝 **Deixe um feedback**")
+    feedback_text = st.text_area("Comentário ou sugestão:", key="feedback_area")
+
+    if st.button("Enviar feedback", key="feedback_submit"):
+        if feedback_text.strip():
+            log_feedback(feedback_text)
+            st.success("✅ Feedback enviado com sucesso!")
+        else:
+            st.warning("⚠️ Escreva algo antes de enviar.")
+
+    # (Opcional) Linha divisória no fim
+    st.markdown("---")
+
 
 # --- Corpo principal ---
 st.title("🎮 Gerador de Jogos Educativos a partir de Artigos")
