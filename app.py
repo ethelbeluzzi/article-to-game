@@ -5,6 +5,8 @@ from utils.generate_game import generate_game_structure
 from utils.github_uploader import upload_game_to_github
 from utils.feedback import log_feedback
 from phases.render_phase import render_fase
+from utils.llm_chat import llm_sidebar_consultation
+
 
 # --- Inicialização de estado ---
 if "jogo_gerado" not in st.session_state:
@@ -18,13 +20,7 @@ if "pontuacao" not in st.session_state:
 
 # --- Sidebar ---
 with st.sidebar:
-    st.image("assets/logo.png", use_container_width=True)
-
-    st.sidebar.markdown("### 💬 Fale com a IA")
-    user_question = st.text_input("Pergunte algo sobre o conteúdo:")
-    if user_question:
-        resposta = llm_response(user_question)
-        st.markdown(f"**IA:** {resposta}")
+    llm_sidebar_consultation()  # nova função integrada
 
     st.markdown("### 🛠️ Enviar feedback")
     feedback_text = st.text_area("Comentário ou sugestão:")
