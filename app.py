@@ -5,31 +5,33 @@ from utils.generate_game import generate_game_structure
 from utils.github_uploader import upload_game_to_github
 from utils.feedback import log_feedback
 from utils.llm_chat import llm_response
-import os
+from phases.render_phase import render_fase
 
-# --- Inicialização do estado ---
+# --- Inicialização de estado ---
 if "jogo_gerado" not in st.session_state:
     st.session_state.jogo_gerado = None
 if "fase_atual" not in st.session_state:
     st.session_state.fase_atual = 0
 if "game_id" not in st.session_state:
     st.session_state.game_id = None
+if "pontuacao" not in st.session_state:
+    st.session_state.pontuacao = 0
 
 # --- Sidebar ---
 with st.sidebar:
     st.image("assets/logo.png", use_column_width=True)
-    
+
     st.markdown("### 💬 Fale com a IA")
-    user_question = st.text_input("Pergunte algo sobre o artigo ou conteúdo.")
+    user_question = st.text_input("Pergunte algo sobre o conteúdo:")
     if user_question:
         resposta = llm_response(user_question)
         st.markdown(f"**IA:** {resposta}")
 
     st.markdown("### 🛠️ Enviar feedback")
-    feedback_text = st.text_area("Escreva um comentário ou sugestão.")
+    feedback_text = st.text_area("Comentário ou sugestão:")
     if st.button("Enviar feedback"):
         log_feedback(feedback_text)
-        st.success("Feedback enviado!")
+        st.success("Feedback enviado com sucesso!")
 
 # --- Corpo principal ---
 st.title("🎮 Gerador de Jogos Educativos a partir de Artigos")
@@ -56,20 +58,32 @@ if st.button("Gerar Jogo"):
             upload_game_to_github(uploaded_file, url, jogo_gerado, game_id)
             st.session_state.jogo_gerado = jogo_gerado
             st.session_state.fase_atual = 0
+            st.session_state.pontuacao = 0
             st.session_state.game_id = game_id
-            st.success("Jogo gerado com sucesso! A primeira fase será exibida abaixo.")
+            st.success("Jogo gerado com sucesso! Veja abaixo a primeira fase.")
 
-# --- Renderiza a fase atual, se já houver jogo gerado ---
-if st.session_state.jogo_gerado:
-    fase = st.session_state.jogo_gerado["fases"][st.session_state.fase_atual]
-    st.header(f"Fase {st.session_state.fase_atual + 1}")
-    st.markdown(f"**Conceito:** {fase['conceito']}")
-    st.markdown(f"**Trecho do artigo:** {fase['trecho']}")
-    st.markdown(f"**Explicação:** {fase['explicacao']}")
-    st.markdown("**Mini-jogo:** (interação será implementada por tipo de fase)")
+# --- Execução do jogo ---
+if st.session_state.jogo_gerado and st.session_state.fase_atual < 5:
+    fase_idx = st.session_state.fase_atual
+    fase = st.session_state.jogo_gerado["fases"][fase_idx]
 
-    if st.button("Avançar para próxima fase"):
-        if st.session_state.fase_atual < 4:
-            st.session_state.fase_atual += 1
-        else:
-            st.success("🎉 Fim do jogo!")
+    st.header(f"Fase {fase_idx + 1} de 5")
+    st.markdown(f"**🔍 Conceito:** {fase['conceito']}")
+    st.markdown(f"**📖 Trecho do artigo:**\n\n> {fase['trecho']}")
+    st.markdown(f"**💡 Explicação:** {fase['explicacao']}")
+    
+    render_fase(fase)
+
+    st.markdown("---")
+    if st.button("➡️ Próxima fase"):
+        st.session_state.fase_atual += 1
+
+# --- Tela final ---
+elif st.session_state.fase_atual == 5:
+    st.success("🎉 Parabéns! Você completou todas as fases!")
+    st.markdown(f"**Sua pontuação:** `{st.session_state.pontuacao}` de 5")
+
+    if st.button("🔄 Voltar ao menu"):
+        for key in ["jogo_gerado", "fase_atual", "pontuacao", "game_id"]:
+            st.session_state.pop(key, None)
+        st.rerun()
