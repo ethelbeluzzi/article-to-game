@@ -1,0 +1,41 @@
+{
+  "titulo": "Jogo Gerado a partir de Artigo",
+  "resumo": "Este jogo foi criado automaticamente com base em um artigo enviado pelo usuário.",
+  "fases": [
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conceito": "Conceito-chave #1",
+      "trecho": "14 “the most striking peculiarity of this language is that from the very beginning of its tradition as we",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    },
+    {
+      "tipo": "ordenar_passos",
+      "conceito": "Conceito-chave #2",
+      "trecho": "means by which the non-specialist may read the texts meaningfully in translation, or they must admit that",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    },
+    {
+      "tipo": "verdadeiro_ou_falso",
+      "conceito": "Conceito-chave #3",
+      "trecho": "entre as numerosas tradições. Como lemos em Ruegg, “As a composition that presents a synthesis of very",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    },
+    {
+      "tipo": "associacao_termos",
+      "conceito": "Conceito-chave #4",
+      "trecho": "approximations resounding with Occidental associations that are necessarily very different from those of",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    },
+    {
+      "tipo": "completar_texto",
+      "conceito": "Conceito-chave #5",
+      "trecho": "by numerous Mahāyānist (i.e. Pāramitāyāna and, accessorily, Vajrayāna) sources. But works belonging to",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    }
+  ]
+}
