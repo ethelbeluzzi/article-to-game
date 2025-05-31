@@ -19,7 +19,7 @@ if "pontuacao" not in st.session_state:
 
 # --- Sidebar ---
 with st.sidebar:
-    st.image("assets/logo.png", use_column_width=True)
+    st.image("assets/logo.png", use_container_width=True)
 
     st.markdown("### 💬 Fale com a IA")
     user_question = st.text_input("Pergunte algo sobre o conteúdo:")
