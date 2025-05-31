@@ -4,7 +4,6 @@ from utils.extract_text import extract_text_from_input
 from utils.generate_game import generate_game_structure
 from utils.github_uploader import upload_game_to_github
 from utils.feedback import log_feedback
-from utils.llm_chat import llm_response
 from phases.render_phase import render_fase
 
 # --- Inicialização de estado ---
@@ -21,7 +20,7 @@ if "pontuacao" not in st.session_state:
 with st.sidebar:
     st.image("assets/logo.png", use_container_width=True)
 
-    st.markdown("### 💬 Fale com a IA")
+    st.sidebar.markdown("### 💬 Fale com a IA")
     user_question = st.text_input("Pergunte algo sobre o conteúdo:")
     if user_question:
         resposta = llm_response(user_question)
