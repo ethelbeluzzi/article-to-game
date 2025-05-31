@@ -7,4 +7,5 @@ html2text           # Conversão de HTML para texto plano
 markdown2           # Conversão de markdown para HTML (ex: exibir explicações)
 uuid                # Geração de identificadores únicos para jogos
 numpy               # Utilitários matemáticos simples (opcional, para fases ou pontuação)
+trafilatura
 
