@@ -4,9 +4,8 @@ from utils.extract_text import extract_text_from_input
 from utils.generate_game import generate_game_structure
 from utils.github_uploader import upload_game_to_github
 from utils.feedback import log_feedback
-from phases.render_phase import render_fase
 from utils.llm_chat import llm_sidebar_consultation
-
+from phases.render_phase import render_fase
 
 # --- Inicialização de estado ---
 if "jogo_gerado" not in st.session_state:
@@ -18,18 +17,12 @@ if "game_id" not in st.session_state:
 if "pontuacao" not in st.session_state:
     st.session_state.pontuacao = 0
 
-from utils.llm_chat import llm_sidebar_consultation
-from utils.feedback import log_feedback
-
 # --- Sidebar ---
 with st.sidebar:
-    # 🤖 Consulta à LLM (Qwen2.5)
     llm_sidebar_consultation()
 
-    # 📝 Feedback do usuário
     st.markdown("📝 **Deixe um feedback**")
     feedback_text = st.text_area("Comentário ou sugestão:", key="feedback_area")
-
     if st.button("Enviar feedback", key="feedback_submit"):
         if feedback_text.strip():
             log_feedback(feedback_text)
@@ -37,38 +30,30 @@ with st.sidebar:
         else:
             st.warning("⚠️ Escreva algo antes de enviar.")
 
-    # (Opcional) Linha divisória no fim
-    st.markdown("---")
-
-
-# --- Corpo principal ---
+# --- Interface principal ---
 st.title("🎮 Gerador de Jogos Educativos a partir de Artigos")
 
-# Upload ou link
-input_type = st.radio("Escolha a forma de envio:", ["Upload de arquivo", "Inserir link de artigo"])
+uploaded_file = st.file_uploader("Envie o artigo (.pdf ou .docx)", type=["pdf", "docx"])
 
-uploaded_file = None
-url = ""
-
-if input_type == "Upload de arquivo":
-    uploaded_file = st.file_uploader("Envie o artigo (.pdf ou .docx)", type=["pdf", "docx"])
-else:
-    url = st.text_input("Cole a URL do artigo")
-
-if st.button("Gerar Jogo"):
+if st.button("Gerar Jogo") and uploaded_file:
     with st.spinner("Processando o artigo e gerando o jogo..."):
-        texto = extract_text_from_input(uploaded_file, url)
-        if not texto:
-            st.error("Não foi possível extrair o texto do artigo.")
-        else:
-            game_id = f"jogo_{uuid.uuid4().hex[:8]}"
-            jogo_gerado = generate_game_structure(texto)
-            upload_game_to_github(uploaded_file, url, jogo_gerado, game_id)
-            st.session_state.jogo_gerado = jogo_gerado
-            st.session_state.fase_atual = 0
-            st.session_state.pontuacao = 0
-            st.session_state.game_id = game_id
-            st.success("Jogo gerado com sucesso! Veja abaixo a primeira fase.")
+        texto = extract_text_from_input(uploaded_file)
+
+        if not texto or len(texto.split()) < 100:
+            st.error("⚠️ O texto do artigo está muito curto ou não pôde ser extraído.")
+            st.stop()
+
+        game_id = f"jogo_{uuid.uuid4().hex[:8]}"
+        jogo_gerado = generate_game_structure(texto)
+
+        upload_game_to_github(uploaded_file, None, jogo_gerado, game_id)
+
+        st.session_state.jogo_gerado = jogo_gerado
+        st.session_state.fase_atual = 0
+        st.session_state.pontuacao = 0
+        st.session_state.game_id = game_id
+
+        st.success("✅ Jogo gerado com sucesso! Veja abaixo a primeira fase.")
 
 # --- Execução do jogo ---
 if st.session_state.jogo_gerado and st.session_state.fase_atual < 5:
@@ -79,7 +64,7 @@ if st.session_state.jogo_gerado and st.session_state.fase_atual < 5:
     st.markdown(f"**🔍 Conceito:** {fase['conceito']}")
     st.markdown(f"**📖 Trecho do artigo:**\n\n> {fase['trecho']}")
     st.markdown(f"**💡 Explicação:** {fase['explicacao']}")
-    
+
     render_fase(fase)
 
     st.markdown("---")
