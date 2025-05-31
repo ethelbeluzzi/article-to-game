@@ -1,0 +1,41 @@
+{
+  "titulo": "Jogo Gerado a partir de Artigo",
+  "resumo": "Este jogo foi criado automaticamente com base em um artigo enviado pelo usuário.",
+  "fases": [
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conceito": "Conceito-chave #1",
+      "trecho": "Table 4: Summary of instruction tuned LLMs (>10B). All abbreviations are the same as Table 3. Entries in “Data/Tokens” starting with “S-” represent the number",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    },
+    {
+      "tipo": "ordenar_passos",
+      "conceito": "Conceito-chave #2",
+      "trecho": "Large Language Models (LLMs) have recently demonstrated remarkable capabilities in natural language processing tasks and",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    },
+    {
+      "tipo": "verdadeiro_ou_falso",
+      "conceito": "Conceito-chave #3",
+      "trecho": "Large Language Models, LLMs, chatGPT, Augmented LLMs, Multimodal LLMs, LLM training, LLM Benchmarking",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    },
+    {
+      "tipo": "associacao_termos",
+      "conceito": "Conceito-chave #4",
+      "trecho": "different training stages like pre-training, instruction-tuning, or alignment tuning. “RL” stands for reinforcement learning, “RM” represents reward-modeling, and",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    },
+    {
+      "tipo": "completar_texto",
+      "conceito": "Conceito-chave #5",
+      "trecho": "Figure 3: A broader overview of LLMs, dividing LLMs into seven branches: 1. Pre-Training 2. Fine-Tuning 3. Efficient 4. Inference 5. Evaluation 6. Applications",
+      "explicacao": "Este trecho trata de um ponto importante do artigo. Em resumo, ele apresenta um conceito essencial para o entendimento geral do texto.",
+      "alem_do_artigo": "Este conceito também pode ser observado em contextos contemporâneos, como em sistemas de IA ou mudanças sociais recentes."
+    }
+  ]
+}
