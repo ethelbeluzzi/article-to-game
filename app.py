@@ -1,3 +1,5 @@
+# app.py
+
 import streamlit as st
 import uuid
 from utils.extract_text import extract_text_from_input
@@ -44,8 +46,7 @@ if st.button("Gerar Jogo") and uploaded_file:
             st.stop()
 
         game_id = f"jogo_{uuid.uuid4().hex[:8]}"
-        fases = generate_game_structure(texto)
-        jogo_gerado = {"fases": fases}  # ✅ encapsula corretamente
+        jogo_gerado = generate_game_structure(texto)
 
         upload_game_to_github(uploaded_file, None, jogo_gerado, game_id)
 
@@ -60,11 +61,12 @@ if st.button("Gerar Jogo") and uploaded_file:
 if st.session_state.jogo_gerado and st.session_state.fase_atual < 5:
     fase_idx = st.session_state.fase_atual
     fase = st.session_state.jogo_gerado["fases"][fase_idx]
+    conteudo = fase.get("conteudo", {})
 
     st.header(f"Fase {fase_idx + 1} de 5")
-    st.markdown(f"**🔍 Conceito:** {fase['conceito']}")
-    st.markdown(f"**📖 Trecho do artigo:**\n\n> {fase['trecho']}")
-    st.markdown(f"**💡 Explicação:** {fase['explicacao']}")
+    st.markdown(f"**🔍 Conceito:** {conteudo.get('conceito', 'Não especificado')}")
+    st.markdown(f"**📖 Trecho do artigo:**\n\n> {conteudo.get('trecho', 'Trecho não disponível')}")
+    st.markdown(f"**💡 Explicação:** {conteudo.get('explicacao', 'Sem explicação.')}")
 
     render_fase(fase)
 
@@ -81,3 +83,4 @@ elif st.session_state.fase_atual == 5:
         for key in ["jogo_gerado", "fase_atual", "pontuacao", "game_id"]:
             st.session_state.pop(key, None)
         st.rerun()
+
