@@ -1,14 +1,19 @@
 import streamlit as st
 
-def exibir(fase_dict):
-    st.markdown("### Complete o Texto")
-    prompt = fase_dict.get("prompt", "O Transformer é uma arquitetura baseada em ___ que revolucionou o processamento de linguagem natural.")
-    resposta_correta = fase_dict.get("resposta", "atenção")
+def render_completar_texto(conteudo):
+    st.subheader("Complete o Texto")
 
-    entrada = st.text_input("Complete a lacuna:", key=f"completar_{fase_dict['conceito']}")
+    enunciado = conteudo.get("enunciado", "Texto com lacuna não fornecido.")
+    opcoes = conteudo.get("opcoes", [])
+    correta = conteudo.get("resposta_correta", "")
+    explicacao = conteudo.get("explicacao", "Sem explicação disponível.")
 
-    if st.button("Verificar resposta", key=f"botao_completar_{fase_dict['conceito']}"):
-        if entrada.strip().lower() == resposta_correta.lower():
-            st.success("✅ Muito bem!")
+    resposta = st.radio(enunciado, opcoes, key=f"ct_{enunciado[:10]}")
+
+    if st.button("Responder", key=f"responder_ct_{enunciado[:10]}"):
+        if resposta == correta:
+            st.success("✅ Resposta correta!")
+            st.session_state.pontuacao += 1
         else:
-            st.error(f"❌ Resposta incorreta. A resposta esperada era: **{resposta_correta}**")
+            st.error(f"❌ Resposta incorreta. A correta era: **{correta}**")
+        st.info(f"💡 {explicacao}")
