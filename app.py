@@ -44,7 +44,8 @@ if st.button("Gerar Jogo") and uploaded_file:
             st.stop()
 
         game_id = f"jogo_{uuid.uuid4().hex[:8]}"
-        jogo_gerado = generate_game_structure(texto)
+        fases = generate_game_structure(texto)
+        jogo_gerado = {"fases": fases}  # ✅ encapsula corretamente
 
         upload_game_to_github(uploaded_file, None, jogo_gerado, game_id)
 
