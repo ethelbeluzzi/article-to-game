@@ -1,7 +1,7 @@
 import streamlit as st
-from phases.quiz_multipla_escolha import render_quiz_multipla_escolha
-from phases.verdadeiro_falso import render_verdadeiro_falso
-from phases.completar_texto import render_completar_texto
+from phases.tipos.quiz_multipla_escolha import render_quiz_multipla_escolha
+from phases.tipos.verdadeiro_falso import render_verdadeiro_falso
+from phases.tipos.completar_texto import render_completar_texto
 
 # Dicionário para despacho dinâmico
 tipo_para_render = {
