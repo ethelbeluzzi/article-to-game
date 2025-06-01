@@ -1,14 +1,20 @@
+# phases/verdadeiro_falso.py
 import streamlit as st
 
-def exibir(fase_dict):
-    st.markdown("### Verdadeiro ou Falso")
-    afirmacao = fase_dict.get("afirmacao", "Esta afirmação é verdadeira?")
-    correta = fase_dict.get("correta", "Verdadeiro")
+def render_verdadeiro_falso(conteudo):
+    st.subheader("Verdadeiro ou Falso")
 
-    escolha = st.radio(afirmacao, ["Verdadeiro", "Falso"], key=f"vf_{fase_dict['conceito']}")
+    afirmativa = conteudo.get("afirmativa", "Afirmativa não fornecida.")
+    correta = conteudo.get("resposta_correta", True)
+    explicacao = conteudo.get("explicacao", "Sem explicação disponível.")
 
-    if st.button("Verificar", key=f"botao_vf_{fase_dict['conceito']}"):
-        if escolha == correta:
-            st.success("✅ Isso mesmo!")
+    escolha = st.radio(afirmativa, ["Verdadeiro", "Falso"], key=f"vf_{afirmativa[:10]}")
+
+    if st.button("Responder", key=f"responder_vf_{afirmativa[:10]}"):
+        escolha_bool = escolha == "Verdadeiro"
+        if escolha_bool == correta:
+            st.success("✅ Resposta correta!")
+            st.session_state.pontuacao += 1
         else:
-            st.error(f"❌ Resposta incorreta. O correto era: **{correta}**")
+            st.error(f"❌ Resposta incorreta. A correta era: **{'Verdadeiro' if correta else 'Falso'}**")
+        st.info(f"💡 {explicacao}")
