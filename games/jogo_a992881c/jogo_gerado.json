@@ -1,0 +1,67 @@
+[
+  {
+    "tipo": "quiz_multipla_escolha",
+    "conteudo": {
+      "pergunta": "O que significa 'shift-short attention' mencionado no artigo LongLoRA [189]?",
+      "alternativas": [
+        "É uma técnica de atenção longa semelhante à ATTN.",
+        "É uma técnica de atenção curta que se move rapidamente entre tópicos.",
+        "É uma técnica de atenção que se estende por períodos mais longos.",
+        "É um método de compressão de atenção para economizar recursos computacionais."
+      ],
+      "correta": "É uma técnica de atenção curta que se move rapidamente entre tópicos."
+    }
+  },
+  {
+    "tipo": "quiz_multipla_escolha",
+    "conteudo": {
+      "pergunta": "O que os modelos de linguagem aprendem durante seu treinamento extenso?",
+      "alternativas": [
+        "A) A gramática e os padrões de linguagem.",
+        "B) Os padrões de imagens.",
+        "C) As músicas populares.",
+        "D) Os hábitos de consumo de alimentos."
+      ],
+      "correta": "A) A gramática e os padrões de linguagem."
+    }
+  },
+  {
+    "tipo": "quiz_multipla_escolha",
+    "conteudo": {
+      "pergunta": "O que é o 'StoryCloze Test'? \n\n Escolha a opção correta:\n",
+      "alternativas": [
+        "A) Um teste de compreensão de leitura baseado em histórias",
+        "B) Um jogo de tabuleiro para crianças",
+        "C) Um método de codificação de texto",
+        "D) Um software de tradução de idiomas"
+      ],
+      "correta": "A) Um teste de compreensão de leitura baseado em histórias"
+    }
+  },
+  {
+    "tipo": "quiz_multipla_escolha",
+    "conteudo": {
+      "pergunta": "Esse trecho não pôde ser convertido em uma fase válida.",
+      "alternativas": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correta": "A"
+    }
+  },
+  {
+    "tipo": "quiz_multipla_escolha",
+    "conteudo": {
+      "pergunta": "Qual tecnologia ou abordagem é mencionada no início do trecho como uma área para melhorias futuras?",
+      "alternativas": [
+        "X. L. Dong",
+        "S. Moon",
+        "Y. E. Xu",
+        "Z. Yu"
+      ],
+      "correta": "X. L. Dong"
+    }
+  }
+]
