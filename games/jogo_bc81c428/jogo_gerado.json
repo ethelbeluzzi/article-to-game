@@ -1,0 +1,69 @@
+{
+  "fases": [
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "O que é o método de 'contrastive pruning' mencionado no trecho?",
+        "alternativas": [
+          "Um método de otimização para pre-treinamento de modelos de linguagem.",
+          "Um tipo de regularização para melhorar a densidade dos modelos.",
+          "Um algoritmo para comparação direta entre modelos.",
+          "Um procedimento para aprimorar a precisão de previsões de modelos densos."
+        ],
+        "correta": "Um método de otimização para pre-treinamento de modelos de linguagem."
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Qual das opções abaixo não é um benefício mencionado no trecho fornecido?",
+        "alternativas": [
+          "melhoramento do tempo de treinamento",
+          "aumento da memória",
+          "estabilidade do treinamento",
+          "melhoria na velocidade de processamento"
+        ],
+        "correta": "melhoria na velocidade de processamento"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Esse trecho não pôde ser convertido em uma fase válida.",
+        "alternativas": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "correta": "A"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "O que isso não apenas economiza tempo, mas também melhora a clareza do?",
+        "alternativas": [
+          "processo",
+          "análise",
+          "escrita",
+          "diagrama"
+        ],
+        "correta": "processo"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Esse trecho não pôde ser convertido em uma fase válida.",
+        "alternativas": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "correta": "A"
+      }
+    }
+  ]
+}
