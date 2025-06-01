@@ -5,13 +5,13 @@ def render_quiz_multipla_escolha(conteudo):
 
     pergunta = conteudo.get("pergunta", "Pergunta não fornecida.")
     opcoes = conteudo.get("opcoes", [])
-    correta = conteudo.get("resposta_correta")
+    correta = conteudo.get("resposta_correta", "")
     explicacao = conteudo.get("explicacao", "Sem explicação disponível.")
 
-    escolha = st.radio(pergunta, opcoes, key=f"quiz_{pergunta[:10]}")
+    resposta = st.radio(pergunta, opcoes, key=f"quiz_{pergunta[:10]}")
 
-    if st.button("Responder", key=f"responder_{pergunta[:10]}"):
-        if escolha == correta:
+    if st.button("Responder", key=f"responder_quiz_{pergunta[:10]}"):
+        if resposta == correta:
             st.success("✅ Resposta correta!")
             st.session_state.pontuacao += 1
         else:
