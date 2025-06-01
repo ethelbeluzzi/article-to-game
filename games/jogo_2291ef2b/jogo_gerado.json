@@ -1,0 +1,69 @@
+{
+  "fases": [
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "O que os números entre colchetes ([237], [246]) referem-se?",
+        "alternativas": [
+          "Código fonte de um programa",
+          "Referências a artigos sobre planejamento de tarefas e movimento",
+          "Erros de digitação",
+          "Palavras cruzadas"
+        ],
+        "correta": "Referências a artigos sobre planejamento de tarefas e movimento"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Esse trecho não pôde ser convertido em uma fase válida.",
+        "alternativas": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "correta": "A"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Os pesquisadores mencionados estão focados em qual área?",
+        "alternativas": [
+          "Neurociência",
+          "Engenharia",
+          "Medicina",
+          "Economia"
+        ],
+        "correta": "Neurociência"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "O que é hosted pelo AlphaCode?",
+        "alternativas": [
+          "competições de programação simuladas",
+          "cursos online",
+          "webinars",
+          "fóruns de discussão"
+        ],
+        "correta": "competições de programação simuladas"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Qual é o tamanho do modelo de linguagem mais comumente usado para gerar texto semelhante a humanos?",
+        "alternativas": [
+          "100M",
+          "1B",
+          "10B",
+          "100B"
+        ],
+        "correta": "1B"
+      }
+    }
+  ]
+}
