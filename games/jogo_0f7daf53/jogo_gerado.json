@@ -1,0 +1,69 @@
+{
+  "fases": [
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Qual é o título da tabela 2 mencionada no trecho?",
+        "alternativas": [
+          "Table 1: Introdução",
+          "Table 2: Key insights and findings from the study of instruction-tuned Large Language Models",
+          "Table 3: Comparação de Modelos",
+          "Table 4: Resultados Finais"
+        ],
+        "correta": "Table 2: Key insights and findings from the study of instruction-tuned Large Language Models"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Qual dos seguintes modelos foi ajustado com conhecimento médico chinês?",
+        "alternativas": [
+          "Tuning llama model with Chinese medical knowledge",
+          "Tuning bert model with English literature knowledge",
+          "Tuning gpt model with physics equations",
+          "Tuning transformers model with economic data"
+        ],
+        "correta": "Tuning llama model with Chinese medical knowledge"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Questões que exigem raciocínio além da simples recuperação de informações testam a capacidade de:",
+        "alternativas": [
+          "memorização",
+          "resolução de problemas",
+          "interpretação de dados",
+          "todas as opções acima"
+        ],
+        "correta": "todas as opções acima"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "O que significa 'language models (or generative ai) in healthcare'?",
+        "alternativas": [
+          "Um modelo de linguagem usado para gerar medicamentos",
+          "Um modelo de linguagem usado em saúde para gerar diagnósticos",
+          "Um modelo de linguagem usado para traduzir documentos médicos",
+          "Um modelo de linguagem usado para gerar conteúdo em diferentes linguagens, aplicado na área de saúde"
+        ],
+        "correta": "Um modelo de linguagem usado para gerar conteúdo em diferentes linguagens, aplicado na área de saúde"
+      }
+    },
+    {
+      "tipo": "quiz_multipla_escolha",
+      "conteudo": {
+        "pergunta": "Quais das opções abaixo são verdadeiras sobre o LLm-pruner?",
+        "alternativas": [
+          "É um método de recortagem estrutural de modelos de linguagem.",
+          "É um método de otimização de recursos.",
+          "É um método de treinamento de modelos de linguagem.",
+          "É um dispositivo de armazenamento de dados."
+        ],
+        "correta": "É um método de recortagem estrutural de modelos de linguagem."
+      }
+    }
+  ]
+}
